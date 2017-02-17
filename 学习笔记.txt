@@ -1,0 +1,21 @@
+1.安装
+composer安装： composer create-project laravel/laravel --prefer-dist blog  blog为要安装的目录
+zip解压： 下载laravel包后解压到所需目录，然后用下面命令配置key：
+php artisan key:generate
+
+验证码配置：
+http://laravelacademy.org/post/3910.html
+composer require mews/captcha
+
+使用Captcha服务提供者之前还需要在config/app.php中注册服务提供者：
+
+'providers' => [
+    // ...
+    Mews\Captcha\CaptchaServiceProvider::class,
+]
+同时注册下相应门面：
+
+'aliases' => [
+    // ...
+    'Captcha' => Mews\Captcha\Facades\Captcha::class,
+]
