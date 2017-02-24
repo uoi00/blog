@@ -19,3 +19,46 @@ composer require mews/captcha
     // ...
     'Captcha' => Mews\Captcha\Facades\Captcha::class,
 ]
+
+Kindediter 使用 edit.html 获取输入框中的值（html代码）
+
+模型学习
+rrotected $fillable =[]; 字段白名单
+rrotected $guarded =[]; 禁止laravel重写的字段
+
+portected $hidden=[]; 不显示\屏蔽不需要显示的字段
+public $timestamp = false; 关闭laravel修改数据表创建和修改时间的请求
+
+$this->find() 按主键查找
+$this->findOrFail()  如果找不到数据则保存
+$this->where('vname','uoi00')->get();  按条件查找
+$this->where('id','>',1)->get();  id大于1
+
+添加数据 类似与Yii框架 使用save保存。
+添加成功返回true
+
+更新类似与Yii框架 先找到要修改的数据 然后修改 使用save保存。
+也可以使用$this->fill()
+
+批量修改：
+将查找到的大量数据进行一次性的修改（修改的字段是相同的） 自动保存
+$rst->update(['type'=>'0']);
+
+collect() 将数组转化为集合（数组）
+
+contains() 查找指定的值
+
+hsa() 是否存在某个键
+
+take(n) 从第一个开始取出n个值
+$ff = $this->all();
+$fff = $ff->toArray();  //将查询结果转为数组
+$fff = $ff->all();  //和视频不一样
+
+##########################################
+#   修改 评论                            #
+#                                        #
+##########################################
+
+######
+Jq 获取父节点的方法 $(this).parent
