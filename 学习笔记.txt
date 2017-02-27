@@ -48,6 +48,9 @@ collect() 将数组转化为集合（数组）
 
 contains() 查找指定的值
 
+toSql使用
+$users = $us::where(['mail'=>$data['mail']])->toSql();
+
 hsa() 是否存在某个键
 
 take(n) 从第一个开始取出n个值
@@ -62,3 +65,29 @@ $fff = $ff->all();  //和视频不一样
 
 ######
 Jq 获取父节点的方法 $(this).parent
+
+######################
+针对某个路由禁用csrt_token验证
+在App\Http\Middleware\VerifyCsrfToken文件下 protected $except中添加需要被排除的路由
+动态地址匹配
+'/photo/show/*'
+#####################################
+base_path() 获取laravel的安装路径 如：blog
+public_path()
+app_path
+
+模型更新数据失败
+在使用where查询后更新无法更新语句 使用find可以
+
+获取插入数据的ID
+$this->fill($data); //插入数据
+$this->save(); //保存
+echo $this->id; //获取ID
+
+//post get请求判断
+if($request->isMethod('post')){
+    // 要执行的代码
+}
+//ajax请求判断
+if($r->isajax())
+

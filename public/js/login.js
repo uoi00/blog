@@ -57,8 +57,6 @@ function getParam(pname) {
 var pwdmin = 6;
 
 $(document).ready(function() {
-
-
 	$('#reg').click(function() {
 		if ($('#user').val() == "") {
 			$('#user').focus().css({
@@ -77,14 +75,14 @@ $(document).ready(function() {
 			return false;
 
 		}
-        if ($('#btn_time').val().length == pwdmin) {
-            $('#btn_time').focus();
+        if ($('#mail_yzm').val().length != 6) {
+            $('#mail_yzm').focus();
             alert("请输入6位校验码");
             return false;
         }
-		if ($('#passwd').val().length < pwdmin) {
+		if ($('#passwd').val().length < 6) {
 			$('#passwd').focus();
-			alert("密码不能小于" + pwdmin + "位");
+			alert("密码不能小于" + 6 + "位");
 			return false;
 		}
 		if ($('#passwd2').val() != $('#passwd').val()) {
@@ -96,5 +94,31 @@ $(document).ready(function() {
 		$('#regUser').submit();
 	});
 
+    $('#upd').click(function() {
+    	var m = $('#mail').val();
+        var ru = /^([a-z0-9]*[-_]?[a-z0-9]+)*@([a-z0-9]*[-_]?[a-z0-9]+)+[\.][a-z]{2,3}([\.][a-z]{2})?$/i;
+        var ss = m.match(ru);
+        if (ss == null) {
+            $('#mail').focus();
+            alert('邮箱错误');
+            return false;
+        }
+        if ($('#mail_yzm').val().length != 6) {
+            $('#mail_yzm').focus();
+            alert("请输入6位校验码");
+            return false;
+        }
+        if ($('#passwd').val().length < 6) {
+            $('#passwd').focus();
+            alert("密码不能小于" + 6 + "位");
+            return false;
+        }
+        if ($('#passwd2').val() != $('#passwd').val()) {
+            $('#passwd2').focus();
+            alert('两次密码不一致！');
+            return false;
+        }
 
+        $('#regUser').submit();
+    });
 });

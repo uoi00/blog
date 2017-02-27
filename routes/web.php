@@ -26,9 +26,14 @@ Route::post('/login','UserController@login');
 //用户注册
 Route::post('/register','UserController@register');
 //找回密码
-Route::get('/find','UserController@find');
+Route::get('/find',function (){
+    return view('find');
+});
+//修改密码
+Route::post('/find/update','UserController@update');
 //用户注销
 Route::get('/logout','UserController@logout');
+
 
 Route::group(['middleware' => 'login'], function () {
     //显示博客主页
@@ -68,11 +73,42 @@ Route::group(['middleware' => 'login'], function () {
     //显示相册界面
     Route::get('/myphotos','PhotoController@index');
     //添加相册
-    Route::get('/photos/add','PhotoController@addPhotos');
+    Route::get('/photo/add','PhotoController@addPhotos');
+    //保存修改
+    Route::post('/photo/addsave','PhotoController@addSave');
+    //相册详情
+    Route::get('/photo/show/{id}','PhotoController@show');
+    //添加相册
+    Route::post('/photo/show/{id}','PhotoController@show')->name('picadd');
+    //修改相册信息
+    Route::get('/photo/edit/{id}','PhotoController@edit');
+    //保存修改
+    Route::post('/photo/editsave','PhotoController@editSave');
+    //删除相册
+    Route::post('/photo/del','PhotoController@del');
 
+    //设置相册封面
+    Route::post('/pic/face','PhotoController@face');
+    //删除相片
+    Route::post('/pic/del','PhotoController@delPic');
+
+
+    //信息页面
+    Route::get('myinfo','InfoController@index');
+    //修改信息
+    Route::get('/info/edit','InfoController@edit');
+    //保存
+    Route::post('/info/save','InfoController@save');
+    //消息页面
+    Route::get('/message','MessageController@index');
 });
 
 
 
+Route::get('/test1',function (){
+    return 12345;
+})->name('t3');
 
-Route::get('/test','UserController@test');
+Route::get('/test',function (){
+    return route('t3');
+});

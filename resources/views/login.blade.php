@@ -13,12 +13,12 @@
 <h1>梵火博客用户界面</h1>
 
 <div class="login" style="margin-top:50px;">
-    
+
     <div class="header">
         <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
 			<a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">快速注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
         </div>
-    </div>    
+    </div>
 
     <div class="web_qr_login" id="web_qr_login" style="display: block; height: 335px;">
             <!--登录-->
@@ -47,19 +47,19 @@
                         </div>
                     </div>
                 <div style="padding-left:50px;margin-top:20px;"><input type="submit" value="登 录" style="width:150px;" class="button_blue"/></div>
-                    <a href="{{url('/find')}}" class="zcxy" target="_blank">忘记密码</a>
+                    <a href="{{url('/find')}}" class="zcxy">忘记密码</a>
               </form>
            </div>
-           
+
             	</div>
-               
+
             </div>
             <!--登录end-->
   </div>
 
   <!--注册-->
     <div class="qlogin" id="qlogin" style="display: none; ">
-   
+
     <div class="web_login">
         <form name="form2" id="regUser" accept-charset="utf-8"  action="http://localhost/blog/public/register" method="post">
             <input type="hidden" name="_token" value="{{csrf_token()}}">
@@ -97,10 +97,9 @@
                 </li>
                 <li>
                     <div class="inputArea">
-                        <input type="button" id="reg"  style="margin-top:10px;margin-left:85px;" class="button_blue" value="同意协议并注册"/>
-                        <a href="#" class="zcxy" target="_blank">注册协议</a>
+                        <input type="button" id="reg"  style="margin-top:10px;margin-left:85px;width: 150px" class="button_blue" value="注册"/>
                     </div>
-                    
+
                 </li><div class="cl"></div>
             </ul>
         </form>

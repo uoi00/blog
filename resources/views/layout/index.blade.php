@@ -29,7 +29,7 @@
                 <ul class="site-nav topmenu">
                     <li><a href="#" >@yield('name')</a></li>
                     <li><a href="{{url('/logout')}}" >退出</a></li>
-                    <li><a href="{{url('/newmessage')}}" >消息</a></li>
+                    {{--<li><a href="{{url('/message')}}" >消息</a></li>--}}
                 </ul>
             </div>
             <!-- logo部分 -->
@@ -51,7 +51,7 @@
                     <li><a title="我的博文" href="{{url('/myblogs')}}">我的博文</a></li>
                     <li><a title="相册" href="{{url('/myphotos')}}">相册</a></li>
                     <li><a title="心情语录" href="{{url('/mymoots')}}">心情语录</a></li>
-                    <li><a title="信息设置" href="{{url('/myinfo')}}">信息设置</a></li>
+                    <li><a title="信息设置" href="{{url('/myinfo')}}">我的信息</a></li>
                 </ul>
             </div>
         </div>
