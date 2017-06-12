@@ -90,4 +90,30 @@ if($request->isMethod('post')){
 }
 //ajax请求判断
 if($r->isajax())
+ 
+设置常量
+常量定义方案A：
 
+step1 按路径生成constants文件
+app/config/constants.php
+
+step2 constants文件里写
+return [
+'ADMIN_NAME' => 'administrator',
+'ADMIN_NAME1' => ['INIT' => '1']
+ 
+
+
+];
+
+step3 在用到的时候
+echo Config::get('constants.ADMIN_NAME');
+echo Config::get('constants.ADMIN_NAME1.INIT');
+
+
+常量定义方案B：
+是在global里加，因为它是全局启动文件~ 加纯php
+
+1,在app/bootstrap/autoload.php文件里加，require app_path().'/constants.php';
+
+2,在app/constants.php(手动创建文件)里定义纯PHP常量 , define('ADMIN', 'administrator');
